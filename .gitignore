@@ -4,6 +4,12 @@
 /*
 
 !/.gitignore
+!/README.md
+!/Makefile
+!/docs/
+!/tests/
+!/tools/
+!/.github/
 !/Mohan_Sai.ioc
 !/.project
 !/.cproject
@@ -16,5 +22,11 @@
 
 # Not tracked on purpose:
 #   Debug/, Release/  - build output, regenerated on every build
+#   build/            - Makefile build output
 #   .metadata/        - CubeIDE workspace state, machine-specific
 #   EWARM/            - unused IAR project files
+
+# Build output inside tracked folders
+tests/build/
+__pycache__/
+*.pyc
