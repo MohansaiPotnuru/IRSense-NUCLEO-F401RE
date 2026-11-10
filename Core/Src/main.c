@@ -2,7 +2,7 @@
 /**
   ******************************************************************************
   * @file           : main.c
-  * @brief          : IR Sensor Project
+  * @brief          : IRSense - IR object counter / conveyor monitor
   ******************************************************************************
   * @attention
   *
@@ -17,7 +17,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
+#include "bsp/firmware.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,24 +45,18 @@
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
-void hello_world(void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 /* Route printf() to the SWO trace pin (PB3) via the ITM.
- * syscalls.c's _write() calls this for every character. */
+ * syscalls.c's _write() calls this for every character. The application
+ * itself logs through bsp/firmware.c (UART + SWO). */
 int __io_putchar(int ch)
 {
   ITM_SendChar((uint32_t)ch);
   return ch;
-}
-
-/* Print a greeting and switch on the green LED (LD2) as visual confirmation. */
-void hello_world(void)
-{
-  printf("Hello, World!\n");
-  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
 }
 /* USER CODE END 0 */
 
@@ -96,7 +90,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
-  hello_world();
+  fw_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,6 +100,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    fw_poll();
   }
   /* USER CODE END 3 */
 }
