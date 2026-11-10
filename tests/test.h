@@ -62,5 +62,7 @@ void suite_stats(void);
 void suite_led_pattern(void);
 void suite_scheduler(void);
 void suite_log(void);
+void suite_config(void);
+void suite_config_store(void);
 
 #endif /* TEST_H */

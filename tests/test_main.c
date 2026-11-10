@@ -22,6 +22,8 @@ static const suite_t k_suites[] = {
     { "led_pattern", suite_led_pattern },
     { "scheduler", suite_scheduler },
     { "log", suite_log },
+    { "config", suite_config },
+    { "config_store", suite_config_store },
 };
 
 int main(void)
