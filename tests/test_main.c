@@ -24,6 +24,9 @@ static const suite_t k_suites[] = {
     { "log", suite_log },
     { "config", suite_config },
     { "config_store", suite_config_store },
+    { "cli", suite_cli },
+    { "app", suite_app },
+    { "app_cli", suite_app_cli },
 };
 
 int main(void)

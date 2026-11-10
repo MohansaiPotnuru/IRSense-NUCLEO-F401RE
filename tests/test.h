@@ -64,5 +64,8 @@ void suite_scheduler(void);
 void suite_log(void);
 void suite_config(void);
 void suite_config_store(void);
+void suite_cli(void);
+void suite_app(void);
+void suite_app_cli(void);
 
 #endif /* TEST_H */
