@@ -1,0 +1,20 @@
+# This folder is also the CubeIDE workspace and holds unrelated files
+# (other projects, personal documents). Ignore everything by default and
+# only track the STM32 project's own files.
+/*
+
+!/.gitignore
+!/Mohan_Sai.ioc
+!/.project
+!/.cproject
+!/.mxproject
+!/.settings/
+!/STM32F401RETX_FLASH.ld
+!/STM32F401RETX_RAM.ld
+!/Core/
+!/Drivers/
+
+# Not tracked on purpose:
+#   Debug/, Release/  - build output, regenerated on every build
+#   .metadata/        - CubeIDE workspace state, machine-specific
+#   EWARM/            - unused IAR project files
