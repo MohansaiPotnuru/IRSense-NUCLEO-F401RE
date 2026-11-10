@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit-tests:
+    name: Host unit tests (gcc + ASan/UBSan)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and run C unit tests
+        run: make -C tests SAN=1
+      - name: Run Python tool tests
+        run: python3 -m unittest discover -s tools -p "test_*.py" -v
+
+  firmware:
+    name: Firmware build (arm-none-eabi-gcc)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi libnewlib-arm-none-eabi
+          arm-none-eabi-gcc --version
+      - name: Build
+        run: make -j"$(nproc)"
+      - name: Upload firmware
+        uses: actions/upload-artifact@v4
+        with:
+          name: irsense-firmware
+          path: |
+            build/Mohan_Sai.elf
+            build/Mohan_Sai.hex
+            build/Mohan_Sai.bin
+            build/Mohan_Sai.map
