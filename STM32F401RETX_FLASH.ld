@@ -45,7 +45,9 @@ _Min_Stack_Size = 0x400; /* required amount of stack */
 MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 96K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 512K
+  /* Last 128 KiB (sector 7, 0x08060000) is reserved for config records
+     (Core/Src/bsp/bsp_flash.c), so the program may use only 384 KiB. */
+  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 384K
 }
 
 /* Sections */
