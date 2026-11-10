@@ -31,3 +31,15 @@
 tests/build/
 __pycache__/
 *.pyc
+
+# CMSIS packs that CubeMX copies in but this project never uses (DSP, NN,
+# RTOS, DAP, Cortex-A, other cores' templates, HTML docs). Only
+# CMSIS/Include and CMSIS/Device are needed to build.
+/Drivers/CMSIS/DSP/
+/Drivers/CMSIS/NN/
+/Drivers/CMSIS/Core/
+/Drivers/CMSIS/Core_A/
+/Drivers/CMSIS/DAP/
+/Drivers/CMSIS/RTOS/
+/Drivers/CMSIS/RTOS2/
+/Drivers/CMSIS/Documentation/
