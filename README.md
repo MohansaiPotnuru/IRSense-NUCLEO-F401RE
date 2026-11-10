@@ -1,6 +1,7 @@
 # IRSense — IR object counter & conveyor monitor (NUCLEO-F401RE)
 
 [![CI](https://github.com/MohansaiPotnuru/IRSense-NUCLEO-F401RE/actions/workflows/ci.yml/badge.svg)](https://github.com/MohansaiPotnuru/IRSense-NUCLEO-F401RE/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/MohansaiPotnuru/IRSense-NUCLEO-F401RE)](https://github.com/MohansaiPotnuru/IRSense-NUCLEO-F401RE/releases/latest)
 
 Bare-metal STM32 firmware that turns an IR obstacle sensor into a
 measurement instrument. It counts objects, measures how long each one
@@ -259,3 +260,7 @@ project's files. If you add a new top-level file or folder, add a matching
 - [ ] DMA for UART TX
 - [ ] A second sensor channel for direction / speed measurement
 - [ ] Low-power STOP mode between objects, woken by EXTI
+
+## License
+
+MIT for the IRSense application code. See [LICENSE](LICENSE). ST/Arm vendor files under `Drivers/` keep their own licenses.
